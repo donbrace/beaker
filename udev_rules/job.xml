@@ -1,0 +1,19 @@
+<job>
+   <whiteboard>
+     udev rules test
+   </whiteboard>
+   <recipeSet>
+     <recipe ks_meta="harness='restraint beakerlib'">
+       <distroRequires>
+           <distro_family op="=" value="rhel74"/>
+           <distro_arch op="=" value="x86_64"/>
+       </distroRequires>
+       <hostRequires />
+
+       <task>
+         <fetch url="https://github.com/donbrace/beaker/udev_test" />
+       </task>
+
+     </recipe>
+   </recipeSet>
+ </job>
