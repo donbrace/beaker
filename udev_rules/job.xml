@@ -5,7 +5,7 @@
    <recipeSet>
      <recipe ks_meta="harness='restraint beakerlib'">
        <distroRequires>
-           <distro_family op="=" value="rhel74"/>
+           <distro_family op="=" value="RedHatEnterpriseLinux7"/>
            <distro_arch op="=" value="x86_64"/>
        </distroRequires>
        <hostRequires />
