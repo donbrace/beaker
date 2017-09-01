@@ -14,7 +14,9 @@
          <fetch url="https://github.com/donbrace/beaker" />
        </task>
 
-       <task "/udev_rules/runtest.sh" role="STANDALONE"/>
+       <task name="test udev rules" 
+             "/udev_rules/runtest.sh" role="STANDALONE"
+       </task>
 
      </recipe>
    </recipeSet>
