@@ -1,0 +1,85 @@
+# Install the beaker-client package:
+$ sudo yum install beaker-client
+
+# You need a git repo (such as github)
+
+# Edit/Create client.conf
+     HUB_URL = "https://beaker.engineering.redhat.com"
+     AUTH_METHOD = "krbv"
+     KRB_REALM = "REHAT.COM"
+
+# Check if it works
+kinit
+bkr whoami
+
+# Find a distro to use.
+bkr distros-list | grep 7.4
+
+# Create an initial template, use your git repo
+beaker-wizard --git
+
+# This creates a Makefile, runtest.sh.
+# Update runtest.sh to add in what you want to do.
+# test the job
+make run
+
+# Create rpm
+make rpm
+make tag
+git push --tags
+
+#####
+##### To modify, you can update the version in the Makefile
+#####
+	vi Makefile  (Change version)
+	make rpm
+	make tag
+	git push --tags
+
+# Add job
+make bkradd
+
+# Add task
+bkr task-add beaker-distribution-dbrace-Sanity-look-at-udev-rules
+
+# Find your task file
+bkr task-list | grep dbrace
+/distribution/dbrace/Sanity/look-at-udev-rules
+
+# Submit/Create an xml job file.
+bkr workflow-simple --arch=x86_64 --distro=RHEL-ALT-7.5-20170831.n.0 --task=/distribution/dbrace/Sanity/look-at-udev-rules --whiteboard=udev --debug > my_job.xml
+
+# Example job file (my_job.xml) [Prettied up]
+<job retention_tag="Scratch">
+     <whiteboard>udev</whiteboard>
+     <recipeSet priority="Normal">
+          <recipe ks_meta="" whiteboard="udev">
+               <distroRequires><and><distro_name op="=" value="RHEL-ALT-7.5-20170831.n.0"/>
+                    <distro_arch op="=" value="x86_64"/></and>
+               </distroRequires>
+               <hostRequires/>
+               <repos/>
+               <partitions/>
+               <task name="/distribution/install" role="STANDALONE">
+                        <params/>
+               </task>
+               <task name="/distribution/dbrace/Sanity/look-at-udev-rules" role="STANDALONE">
+                          <params/>
+               </task>
+          </recipe>
+     </recipeSet>
+</job>
+# Watch the job
+bkr job-watch J:2032018
+Watching tasks (this may be safely interrupted)...
+J:2032018 udev: Scheduled
+--> Scheduled: 1 [total: 1]
+J:2032018 udev: Scheduled -> Installing
+--> Installing: 1 [total: 1]
+J:2032018 udev: Installing -> Waiting
+--> Waiting: 1 [total: 1]
+J:2032018 udev: Waiting -> Running
+--> Running: 1 [total: 1]
+J:2032018 udev: Running -> Completed
+--> Completed: 1 [total: 1]
+
