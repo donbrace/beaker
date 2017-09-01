@@ -13,11 +13,6 @@
        <task>
          <fetch url="https://github.com/donbrace/beaker" />
        </task>
-
-       <task name="test udev rules" 
-             "/udev_rules/runtest.sh" role="STANDALONE"
-       </task>
-
      </recipe>
    </recipeSet>
  </job>
