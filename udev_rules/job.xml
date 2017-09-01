@@ -11,8 +11,8 @@
        <hostRequires />
 
        <task>
-         <fetch url="https://github.com/donbrace/beaker/udev_test" />
-         <task name="runtest.sh" role="STANDALONE"/>
+         <fetch url="https://github.com/donbrace/beaker" />
+         <task name="udev_rules/runtest.sh" role="STANDALONE"/>
        </task>
 
      </recipe>
