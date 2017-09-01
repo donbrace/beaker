@@ -1,19 +1,19 @@
 <job retention_tag="Scratch">
      <whiteboard>udev</whiteboard>
      <recipeSet priority="Normal">
-     <recipe ks_meta="" whiteboard="udev">
-     <distroRequires><and><distro_name op="=" value="RHEL-ALT-7.5-20170831.n.0"/>
-     <distro_arch op="=" value="x86_64"/></and>
-     </distroRequires>
-     <hostRequires/>
-     <repos/>
-     <partitions/>
-     <task name="/distribution/install" role="STANDALONE">
-              <params/>
-     </task>
-     <task name="/distribution/dbrace/Sanity/look-at-udev-rules" role="STANDALONE">
-                <params/>
-     </task>
-     </recipe>
+          <recipe ks_meta="" whiteboard="udev">
+               <distroRequires><and><distro_name op="=" value="RHEL-ALT-7.5-20170831.n.0"/>
+                    <distro_arch op="=" value="x86_64"/></and>
+               </distroRequires>
+               <hostRequires/>
+               <repos/>
+               <partitions/>
+               <task name="/distribution/install" role="STANDALONE">
+                        <params/>
+               </task>
+               <task name="/distribution/dbrace/Sanity/look-at-udev-rules" role="STANDALONE">
+                          <params/>
+               </task>
+          </recipe>
      </recipeSet>
 </job>
