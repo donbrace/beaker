@@ -29,7 +29,7 @@
 . /usr/bin/rhts-environment.sh || exit 1
 . /usr/share/beakerlib/beakerlib.sh || exit 1
 
-PACKAGE="dbrace"
+#PACKAGE="dbrace"
 
 rlJournalStart
     rlPhaseStartSetup
