@@ -42,8 +42,10 @@ rlJournalStart
         rlRun "touch foo" 0 "Creating the foo test file"
         rlAssertExists "foo"
         rlRun "ls -l foo" 0 "Listing the foo test file"
+        rlRun "cat /etc/*-release" 0 "Looking at release file"
+        rlRun "uname -r" 0 "uname"
         rlRun "ls -l /usr/lib/udev/rules.d" 0 "Listing the udev rules directory"
-        rlRun "cat /usr/lib/udev/rules.d/60-block.rules" 0 "cat out 60-block.rules"
+        #rlRun "cat /usr/lib/udev/rules.d/60-block.rules" 0 "cat out 60-block.rules"
     rlPhaseEnd
 
     rlPhaseStartCleanup
