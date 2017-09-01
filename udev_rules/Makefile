@@ -24,7 +24,7 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 export TEST=/distribution/dbrace/Sanity/look-at-udev-rules
-export TESTVERSION=1.1
+export TESTVERSION=1.2
 
 BUILT_FILES=
 
