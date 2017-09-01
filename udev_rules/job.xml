@@ -12,6 +12,7 @@
 
        <task>
          <fetch url="https://github.com/donbrace/beaker/udev_test" />
+         <task name="runtest.sh" role="STANDALONE"/>
        </task>
 
      </recipe>
