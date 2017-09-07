@@ -1,0 +1,14 @@
+Owner:           Don Brace <dbrace@redhat.com>
+Name:            /distribution/dbrace/KernelTier1/Look-at-udev-rules
+TestVersion:     1.2
+Path:            /mnt/tests/distribution/dbrace/KernelTier1/Look-at-udev-rules
+Description:     Look at udev rules
+Type:            Sanity
+TestTime:        5m
+RunFor:          dbrace
+Requires:        dbrace
+Priority:        Normal
+License:         GPLv2+
+Confidential:    no
+Destructive:     no
+Releases:        -RHEL4 -RHELClient5 -RHELServer5
