@@ -23,7 +23,7 @@
 #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-export TEST=/distribution/dbrace/udev-rules
+export TEST=/dbrace/Projects/beaker/udev-rules
 export TESTVERSION=1.3
 
 BUILT_FILES=

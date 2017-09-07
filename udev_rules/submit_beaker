@@ -4,5 +4,5 @@
 #bkr workflow-simple --arch=x86_64 --distro=RHEL-ALT-7.5-20170831.n.0 --task=/distribution/dbrace/udev-rules --whiteboard=udev --debug > my_job.xml
 #bkr workflow-simple --arch=x86_64 --distro=RHEL-7.5-20170830.n.2 --tag=distribution-dbrace-Sanity-look-at-udev-rules-1_2-1 --task=/distribution/dbrace/udev-rules --whiteboard=udev --debug > my_job.xml
 #bkr workflow-simple --arch=x86_64 --distro=RHEL-7.5-20170830.n.2 --servers=4 --tag=distribution-dbrace-Sanity-look-at-udev-rules-1_2-1 --task=/distribution/dbrace/udev-rules --whiteboard=udev --debug > my_job.xml
-bkr workflow-simple --variant=Server --systype=machine --arch=x86_64 --distro=RHEL-7.5-20170905.n.0 --tag=distribution-dbrace--udev-rules-1.3_1 --task=/distribution/dbrace/udev-rules --whiteboard=udev --debug > my_job.xml
+bkr workflow-simple --variant=Server --systype=machine --arch=x86_64 --distro=RHEL-7.5-20170905.n.0 --tag=distribution-dbrace--udev-rules-1.3_1 --task=/beaker/dbrace/Projects/beaker/udev-rules-1.3-1  --whiteboard=udev --debug
 #bkr workflow-simple --machine=cisco-b22m3-01.rhts.eng.bos.redhat.com --systype=machine --arch=x86_64 --distro=RHEL-7.5-20170905.n.0 --tag=distribution-dbrace-Sanity-look-at-udev-rules-1_2-1 --task=/distribution/dbrace/udev-rules --whiteboard=udev --debug > my_job.xml

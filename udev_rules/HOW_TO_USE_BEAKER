@@ -1,7 +1,8 @@
+# This file is not entirely correct.
+# But it's a start
+#
 # Install the beaker-client package:
 $ sudo yum install beaker-client
-
-# You need a git repo (such as github)
 
 # Edit/Create client.conf
      HUB_URL = "https://beaker.engineering.redhat.com"
@@ -11,7 +12,37 @@ $ sudo yum install beaker-client
 # Check if it works
 kinit
 bkr whoami
+#==============================================================================
+# You need to start with setting up a git repository somewhere.
+# I am using github, but it does not need to be github.
+#==============================================================================
+#
+# You need to setup the jobs with a wizard (for ease of use)
+beaker-wizard --git
+make tag
+git push --tags
+make rpm
+# Update your runtest.sh to do what you want
+make bkradd
+# Verify that the job was added.
+bkr task-list | grep dbrace
+	/distribution/dbrace/Sanity/look-at-udev-rules
+	/distribution/dbrace/KernelTier1/Look-at-udev-rules
+# Modify submit_beaker to reflect your tag and task
+bkr workflow-simple --variant=Server --systype=machine --arch=x86_64 --distro=RHEL-7.5-20170905.n.0 --tag=/distribution/dbrace/KernelTier1/Look-at-udev-rules --task=/distribution/dbrace/KernelTier1/Look-at-udev-rules --whiteboard=udev --debug
 
+#####
+##### To modify, you can update the version in the Makefile
+#####
+	vi Makefile  (Change version)
+	make tag
+	git push --tags
+	make rpm
+#==============================================================================
+#==============================================================================
+# Below are some stuff I did, but not in correct order
+#==============================================================================
+#==============================================================================
 # Find a distro to use.
 bkr distros-list | grep 7.4
 
@@ -27,14 +58,6 @@ make run
 make rpm
 make tag
 git push --tags
-
-#####
-##### To modify, you can update the version in the Makefile
-#####
-	vi Makefile  (Change version)
-	make tag
-	git push --tags
-	make rpm
 
 # Add job
 make bkradd
