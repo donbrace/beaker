@@ -32,9 +32,9 @@ git push --tags
 ##### To modify, you can update the version in the Makefile
 #####
 	vi Makefile  (Change version)
-	make rpm
 	make tag
 	git push --tags
+	make rpm
 
 # Add job
 make bkradd
