@@ -4,7 +4,7 @@
           <recipe ks_meta="" whiteboard="udev">
                <distroRequires>
                    <and>
-                       <distro_name op="=" value="RHEL-7.4-20170711.0"/>
+                       <distro_name op="=" value="RHEL-7.5-20170830.n.2"/>
                        <distro_arch op="=" value="x86_64"/>
                    </and>
                </distroRequires>
