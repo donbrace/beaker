@@ -1,7 +1,7 @@
 Owner:           Don Brace <dbrace@redhat.com>
 Name:            /distribution/dbrace/KernelTier1/Look-at-udev-rules
 TestVersion:     1.2
-Path:            /mnt/tests/distribution/dbrace/KernelTier1/Look-at-udev-rules
+Path:            /mnt/tests/kernel/udev_rules/KernelTier1/Look-at-udev-rules
 Description:     Look at udev rules
 Type:            Sanity
 TestTime:        5m
