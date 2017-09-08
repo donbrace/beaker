@@ -73,4 +73,7 @@ run_sg_logs
 echo "Running check_max_sectors_kb"
 check_max_sectors_kb
 
+cat $LOGFILE
+
+
 exit 0
