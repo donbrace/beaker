@@ -28,7 +28,7 @@ export TESTVERSION=2.0
 
 BUILT_FILES=
 
-FILES=$(METADATA) runtest.sh Makefile PURPOSE
+FILES=$(METADATA) runtest.sh check_for_udev.sh Makefile PURPOSE
 
 .PHONY: all install download clean
 
@@ -37,6 +37,7 @@ run: $(FILES) build
 
 build: $(BUILT_FILES)
 	test -x runtest.sh || chmod a+x runtest.sh
+	test -x check_for_udev.sh || chmod a+x check_for_udev.sh
 
 clean:
 	rm -f *~ $(BUILT_FILES)
