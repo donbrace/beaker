@@ -50,7 +50,9 @@ rlJournalStart
         rlRun "which lsscsi" 0 "Where is lsscsi"
         rlRun "[ -x /usr/bin/lsscsi ] && lsscsi" 0 "list of SCSI devices"
         rlRun "which sg_logs" 0 "Where is sg_logs"
-        rlRun "[ -x ./check_for_udev.sh ] && sh ./check_for_udev.sh" 0 "test max_sectors_kb"
+        rlRun "pwd" 0 "Where am I?"
+        rlRun "ls -l" 0 "What file are where I am"
+        rlRun "[ -x ./check_for_udev.sh ] && ./check_for_udev.sh" 0 "test max_sectors_kb"
     rlPhaseEnd
 
     rlPhaseStartCleanup
