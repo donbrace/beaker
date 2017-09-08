@@ -6,15 +6,18 @@
 DISKS=""
 NUM_DISKS=0
 get_disk_list () {
-        [ -x /usr/bin/lsscsi ] || return 0
-        /usr/bin/lsscsi | grep disk | awk '{ print $NF }'  > /tmp/my_disks
-        while read disk
-        do
-                DISKS[$NUM_DISKS]="$disk"
-		NUM_DISKS=`expr $NUM_DISKS + 1`
-        done < /tmp/my_disks
-
-	NUM_DISKS=`expr $NUM_DISKS - 1`
+        if [ -x /usr/bin/lsscsi ]
+	then
+        	/usr/bin/lsscsi | grep disk | awk '{ print $NF }'  > /tmp/my_disks
+        	while read disk
+        	do
+			echo "DISK found $disk"
+                	DISKS[$NUM_DISKS]="$disk"
+			NUM_DISKS=`expr $NUM_DISKS + 1`
+        	done < /tmp/my_disks
+	
+		NUM_DISKS=`expr $NUM_DISKS - 1`
+	fi
 }
 
 check_max_sectors_kb () {
@@ -39,19 +42,29 @@ set_max_sectors_kb () {
 }
 
 run_sg_logs () {
-        [ -x sg_logs ] || return 0
-        for inx in `seq 0 $NUM_DISKS`
-        do
-                echo ${DISKS[$inx]}
-		D=${DISKS[$inx]}
-                D1=`basename $D`
-                sg_logs -t $D
-        done
+        if [ -x /usr/bin/sg_logs ]
+	then
+        	for inx in `seq 0 $NUM_DISKS`
+        	do
+                	echo ${DISKS[$inx]}
+			D=${DISKS[$inx]}
+                	D1=`basename $D`
+                	sg_logs -t $D
+        	done
+	fi
 }
 
+echo "Running get_disk_list"
 get_disk_list
+echo "Running check_max_sectors_kb"
 check_max_sectors_kb
+echo "Running set_max_sectors_kb"
 set_max_sectors_kb
+echo "Running check_max_sectors_kb"
 check_max_sectors_kb
+echo "Running run_sg_logs"
 run_sg_logs
+echo "Running check_max_sectors_kb"
 check_max_sectors_kb
+
+exit 0
