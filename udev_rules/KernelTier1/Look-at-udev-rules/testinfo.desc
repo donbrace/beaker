@@ -1,6 +1,6 @@
 Owner:           Don Brace <dbrace@redhat.com>
 Name:            /kernel/udev_rules/KernelTier1/Look-at-udev-rules
-TestVersion:     2.0-3
+TestVersion:     3.0
 Path:            /mnt/tests/kernel/udev_rules/KernelTier1/Look-at-udev-rules
 Description:     Examine udev rule files
 Type:            KernelTier1
