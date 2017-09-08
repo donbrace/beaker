@@ -12,6 +12,8 @@ get_disk_list () {
         	while read disk
         	do
 			echo "DISK found $disk"
+			echo "DISK found $disk" 1>&3
+			echo "DISK found $disk" 2>&3
                 	DISKS[$NUM_DISKS]="$disk"
 			NUM_DISKS=`expr $NUM_DISKS + 1`
         	done < /tmp/my_disks
@@ -24,6 +26,7 @@ check_max_sectors_kb () {
         for inx in `seq 0 $NUM_DISKS`
         do
                 echo ${DISKS[$inx]}
+                echo ${DISKS[$inx]} 1>&3
 		D=${DISKS[$inx]}
                 D1=`basename $D`
                 cat /sys/block/$D1/queue/max_sectors_kb
@@ -34,10 +37,12 @@ set_max_sectors_kb () {
         for inx in `seq 0 $NUM_DISKS`
         do
                 echo ${DISKS[$inx]}
+                echo ${DISKS[$inx]} 1>&3
 		D=${DISKS[$inx]}
                 D1=`basename $D`
-                cat /sys/block/$D1/queue/max_sectors_kb
+                cat /sys/block/$D1/queue/max_sectors_kb 1>&3
 		echo 64 > /sys/block/$D1/queue/max_sectors_kb
+                cat /sys/block/$D1/queue/max_sectors_kb 1>&3
         done
 }
 
@@ -47,9 +52,10 @@ run_sg_logs () {
         	for inx in `seq 0 $NUM_DISKS`
         	do
                 	echo ${DISKS[$inx]}
+                	echo ${DISKS[$inx]} 1>&3
 			D=${DISKS[$inx]}
                 	D1=`basename $D`
-                	sg_logs -t $D
+                	sg_logs -t $D 1>&3
         	done
 	fi
 }
