@@ -2,7 +2,7 @@
 #==============================================================================
 # check for max_sectors_kb
 #==============================================================================
-
+LOGFILE=/tmp/L
 DISKS=""
 NUM_DISKS=0
 get_disk_list () {
@@ -12,8 +12,7 @@ get_disk_list () {
         	while read disk
         	do
 			echo "DISK found $disk"
-			echo "DISK found $disk" 1>&3
-			echo "DISK found $disk" 2>&3
+			echo "DISK found $disk" >> $LOGFILE 2>&1
                 	DISKS[$NUM_DISKS]="$disk"
 			NUM_DISKS=`expr $NUM_DISKS + 1`
         	done < /tmp/my_disks
@@ -26,10 +25,10 @@ check_max_sectors_kb () {
         for inx in `seq 0 $NUM_DISKS`
         do
                 echo ${DISKS[$inx]}
-                echo ${DISKS[$inx]} 1>&3
+                echo ${DISKS[$inx]} >> $LOGFILE 2>&1
 		D=${DISKS[$inx]}
                 D1=`basename $D`
-                cat /sys/block/$D1/queue/max_sectors_kb
+                cat /sys/block/$D1/queue/max_sectors_kb >> $LOGFILE 2>&1
         done
 }
 
@@ -37,12 +36,12 @@ set_max_sectors_kb () {
         for inx in `seq 0 $NUM_DISKS`
         do
                 echo ${DISKS[$inx]}
-                echo ${DISKS[$inx]} 1>&3
+                echo ${DISKS[$inx]} >> $LOGFILE 2>&1
 		D=${DISKS[$inx]}
                 D1=`basename $D`
-                cat /sys/block/$D1/queue/max_sectors_kb 1>&3
+                cat /sys/block/$D1/queue/max_sectors_kb >> $LOGFILE 2>&1
 		echo 64 > /sys/block/$D1/queue/max_sectors_kb
-                cat /sys/block/$D1/queue/max_sectors_kb 1>&3
+                cat /sys/block/$D1/queue/max_sectors_kb >> $LOGFILE 2>&1
         done
 }
 
@@ -52,14 +51,15 @@ run_sg_logs () {
         	for inx in `seq 0 $NUM_DISKS`
         	do
                 	echo ${DISKS[$inx]}
-                	echo ${DISKS[$inx]} 1>&3
+                	echo ${DISKS[$inx]} >> $LOGFILE 2>&1
 			D=${DISKS[$inx]}
                 	D1=`basename $D`
-                	sg_logs -t $D 1>&3
+                	sg_logs -t $D >> $LOGFILE 2>&1
         	done
 	fi
 }
 
+rm -rf $LOGFILE
 echo "Running get_disk_list"
 get_disk_list
 echo "Running check_max_sectors_kb"
