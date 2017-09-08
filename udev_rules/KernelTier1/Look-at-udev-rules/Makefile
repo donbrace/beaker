@@ -24,7 +24,7 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 export TEST=/kernel/udev_rules/KernelTier1/Look-at-udev-rules
-export TESTVERSION=1.0
+export TESTVERSION=2.0
 
 BUILT_FILES=
 
