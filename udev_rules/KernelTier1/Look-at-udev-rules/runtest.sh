@@ -47,7 +47,9 @@ rlJournalStart
         rlRun "ls -l /usr/lib/udev/rules.d" 0 "Listing the udev rules directory"
         rlRun "[ -f /usr/lib/udev/rules.d/60-block.rules ] && cat /usr/lib/udev/rules.d/60-block.rules" 0 "cat out 60-block.rules"
         rlRun "[ -f /usr/lib/udev/rules.d/60-persistent-storage.rules ] && cat /usr/lib/udev/rules.d/60-persistent-storage.rules" 0 "cat out 60-persistent-storage.rules"
+        rlRun "which lsscsi" 0 "Where is lsscsi"
         rlRun "[ -x /usr/bin/lsscsi ] && lsscsi" 0 "list of SCSI devices"
+        rlRun "which sg_logs" 0 "Where is sg_logs"
         rlRun "[ -x ./check_for_udev.sh ] && sh ./check_for_udev.sh" 0 "test max_sectors_kb"
     rlPhaseEnd
 
