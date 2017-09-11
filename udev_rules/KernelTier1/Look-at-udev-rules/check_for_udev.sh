@@ -6,6 +6,7 @@ LOGFILE=/tmp/L
 DISKS=""
 NUM_DISKS=0
 get_disk_list () {
+	LOGFILE=$1
         if [ -x /usr/bin/lsscsi ]
 	then
         	/usr/bin/lsscsi | grep disk | awk '{ print $NF }'  > /tmp/my_disks
@@ -22,6 +23,7 @@ get_disk_list () {
 }
 
 check_max_sectors_kb () {
+	LOGFILE=$1
         for inx in `seq 0 $NUM_DISKS`
         do
                 echo ${DISKS[$inx]}
@@ -33,6 +35,7 @@ check_max_sectors_kb () {
 }
 
 set_max_sectors_kb () {
+	LOGFILE=$1
         for inx in `seq 0 $NUM_DISKS`
         do
                 echo ${DISKS[$inx]}
@@ -46,6 +49,7 @@ set_max_sectors_kb () {
 }
 
 run_sg_logs () {
+	LOGFILE=$1
         if [ -x /usr/bin/sg_logs ]
 	then
         	for inx in `seq 0 $NUM_DISKS`
@@ -59,19 +63,18 @@ run_sg_logs () {
 	fi
 }
 
-rm -rf $LOGFILE
 echo "Running get_disk_list"
-get_disk_list
+get_disk_list $LOGILE
 echo "Running check_max_sectors_kb"
-check_max_sectors_kb
+check_max_sectors_kb ${LOGFILE}
 echo "Running set_max_sectors_kb"
-set_max_sectors_kb
+set_max_sectors_kb ${LOGFILE}
 echo "Running check_max_sectors_kb"
-check_max_sectors_kb
+check_max_sectors_kb ${LOGFILE}
 echo "Running run_sg_logs"
-run_sg_logs
+run_sg_logs ${LOGFILE}
 echo "Running check_max_sectors_kb"
-check_max_sectors_kb
+check_max_sectors_kb ${LOGFILE}
 
 cat $LOGFILE
 
