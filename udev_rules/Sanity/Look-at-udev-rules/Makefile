@@ -23,7 +23,7 @@
 #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-export TEST=/kernel/udev_rules/KernelTier1/Look-at-udev-rules
+export TEST=/kernel/udev_rules/Sanity/Look-at-udev-rules
 export TESTVERSION=3.0
 
 BUILT_FILES=

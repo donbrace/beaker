@@ -1,0 +1,12 @@
+#!/bin/sh
+#,hp-dl160g9-1.gsslab.rdu2.redhat.com,hp-dl360g9-03.lab.eng.pek2.redhat.com \
+#bkr workflow-simple --dryrun --arch=x86_64 --distro=RHEL-ALT-7.5-20170831.n.0 --task=/distribution/dbrace/udev-rules --whiteboard=udev --debug > my_job.xml
+#bkr workflow-simple --arch=x86_64 --distro=RHEL-ALT-7.5-20170831.n.0 --task=/distribution/dbrace/udev-rules --whiteboard=udev --debug > my_job.xml
+#bkr workflow-simple --arch=x86_64 --distro=RHEL-7.5-20170830.n.2 --tag=distribution-dbrace-Sanity-look-at-udev-rules-1_2-1 --task=/distribution/dbrace/udev-rules --whiteboard=udev --debug > my_job.xml
+#bkr workflow-simple --arch=x86_64 --distro=RHEL-7.5-20170830.n.2 --servers=4 --tag=distribution-dbrace-Sanity-look-at-udev-rules-1_2-1 --task=/distribution/dbrace/udev-rules --whiteboard=udev --debug > my_job.xml
+##
+#beaker-kernel-udev_rules-KernelTier1-Look-at-udev-rules-1.0-3.noarch.rpm
+#/distribution/dbrace/KernelTier1/Look-at-udev-rules
+##
+#bkr workflow-simple --machine=cisco-b22m3-01.rhts.eng.bos.redhat.com --systype=machine --arch=x86_64 --distro=RHEL-7.5-20170905.n.0 --tag=distribution-dbrace-Sanity-look-at-udev-rules-1_2-1 --task=/distribution/dbrace/udev-rules --whiteboard=udev --debug > my_job.xml
+bkr workflow-simple --variant=Server --systype=machine --arch=x86_64 --distro=RHEL-7.5-20170905.n.0 --tag=/distribution/dbrace/KernelTier1/Look-at-udev-rules --task=/distribution/dbrace/KernelTier1/Look-at-udev-rules --whiteboard=udev --debug --install=lsscsi --install=sg3_utils
