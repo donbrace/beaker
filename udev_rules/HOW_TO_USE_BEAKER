@@ -1,6 +1,10 @@
 # This file is not entirely correct.
 # But it's a start
 #
+#==============================================================================
+# NOTE:  Do not use Sanity,this affects RedHat testing
+#==============================================================================
+#
 # Install the beaker-client package:
 $ sudo yum install beaker-client
 
@@ -27,9 +31,9 @@ make bkradd
 # Verify that the job was added.
 bkr task-list | grep dbrace
 	/distribution/dbrace/Sanity/look-at-udev-rules
-	/distribution/dbrace/KernelTier1/Look-at-udev-rules
+	/distribution/dbrace/Sanity/Look-at-udev-rules
 # Modify submit_beaker to reflect your tag and task
-bkr workflow-simple --variant=Server --systype=machine --arch=x86_64 --distro=RHEL-7.5-20170905.n.0 --tag=/distribution/dbrace/KernelTier1/Look-at-udev-rules --task=/distribution/dbrace/KernelTier1/Look-at-udev-rules --whiteboard=udev --debug
+bkr workflow-simple --variant=Server --systype=machine --arch=x86_64 --distro=RHEL-7.5-20170905.n.0 --tag=/distribution/dbrace/Sanity/Look-at-udev-rules --task=/distribution/dbrace/Sanity/Look-at-udev-rules --whiteboard=udev --debug
 
 #####
 ##### To modify, you can update the version in the Makefile
