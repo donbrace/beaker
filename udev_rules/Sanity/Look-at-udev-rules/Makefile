@@ -1,6 +1,6 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
-#   Makefile of /kernel/udev_rules/KernelTier1/Look-at-udev-rules
+#   Makefile of /kernel/udev_rules/Sanity/Look-at-udev-rules
 #   Description: Examine udev rule files
 #   Author: Don Brace <dbrace@redhat.com>
 #
@@ -51,7 +51,7 @@ $(METADATA): Makefile
 	@echo "TestVersion:     $(TESTVERSION)" >> $(METADATA)
 	@echo "Path:            $(TEST_DIR)" >> $(METADATA)
 	@echo "Description:     Examine udev rule files" >> $(METADATA)
-	@echo "Type:            KernelTier1" >> $(METADATA)
+	@echo "Type:            Sanity" >> $(METADATA)
 	@echo "TestTime:        5m" >> $(METADATA)
 	@echo "RunFor:          udev_rules" >> $(METADATA)
 	@echo "Requires:        udev_rules" >> $(METADATA)

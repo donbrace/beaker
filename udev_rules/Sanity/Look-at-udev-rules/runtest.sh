@@ -52,9 +52,9 @@ rlJournalStart
         rlRun "which sg_logs" 0 "Where is sg_logs"
         rlRun "pwd" 0 "Where am I?"
         rlRun "ls -l" 0 "What file are where I am"
-        rlRun "ls -l /mnt/tests/kernel/udev_rules/KernelTier1/Look-at-udev-rules" 0 "What file are /mnt"
+        rlRun "ls -l /mnt/tests/kernel/udev_rules/Sanity/Look-at-udev-rules" 0 "What file are /mnt"
         rlRun "ls -l $TmpDir" 0 "What file are in $TmpDir"
-        rlRun "[ -x /mnt/tests/kernel/udev_rules/KernelTier1/Look-at-udev-rules/check_for_udev.sh ] && /mnt/tests/kernel/udev_rules/KernelTier1/Look-at-udev-rules/check_for_udev.sh >> /tmp/DON 2>&1; cat /tmp/DON" 0 "test max_sectors_kb"
+        rlRun "[ -x /mnt/tests/kernel/udev_rules/Sanity/Look-at-udev-rules/check_for_udev.sh ] && /mnt/tests/kernel/udev_rules/Sanity/Look-at-udev-rules/check_for_udev.sh >> /tmp/DON 2>&1; cat /tmp/DON" 0 "test max_sectors_kb"
     rlPhaseEnd
 
     rlPhaseStartCleanup
